@@ -1,0 +1,32 @@
+# Here are the steps to solve the problem:
+
+1. Read the CSV file and parse it into a two-dimensional array.
+
+2. Iterate through each cell in the table and check if it contains a formula. If a cell contains a formula,
+   extract the formula string and use a separate method to parse and evaluate the formula.
+   If the cell contains a value, leave it as is.
+
+3. For each formula, parse the string to extract the cell references and the operators used in the formula. 
+   Use these references to look up the values of the referenced cells in the table.
+
+4. Evaluate the formula using the values of the referenced cells and the operators in the formula.
+
+5. Replace the formula in the table with its calculated value.
+
+6. Write the updated table to a new CSV file.
+
+=> To handle errors, we can check for the following:
+
+1. Invalid CSV format: The CSV file may not have the correct number of columns or rows, or may contain invalid 
+   characters. We can use a try-catch block to handle exceptions thrown by the CSV parsing library.
+
+2. Invalid formula: The formula in a cell may contain syntax errors or reference cells that do not exist.
+   We can use regular expressions to validate the formula syntax and check that the referenced cells exist in 
+   the table.
+
+3. Division by zero: A formula may contain a division operation with zero as the denominator, which would
+   result in an error. We can check for this case and handle it appropriately.
+
+-> To prevent users from breaking the code, we can validate the CSV file before processing it, and provide
+   clear error messages if there are any issues. We can also restrict the types of formulas that can be used
+   in the cells, and handle any errors gracefully by providing informative error messages to the user.
